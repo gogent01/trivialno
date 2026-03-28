@@ -1,0 +1,179 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: hsla(210, 20%, 6%, 1);
+  --primary-color: rgba(0,0,200,1);
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', monospace;
+  --transition-base: 0.3s ease;
+  --padding-x: 1rem;
+  --padding-y: 1rem;
+  --canvas-expansion: 0.75rem;
+
+  --font-size-display: clamp(2.5rem, 5vw - 0.7rem, 5rem);
+  --font-size-body: clamp(1rem, 2vw - 0.28rem, 2rem);
+}
+
+@media screen and (min-width: 640px) {
+  :root {
+    --padding-x: 2.5rem;
+    --padding-y: 1.25rem;
+    --canvas-expansion: 1.25rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-color);
+}
+
+body {
+  width: 100%;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero {
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-y) var(--padding-x);
+}
+
+.hero canvas {
+  display: block;
+  flex: 1;
+  width: calc(100% + 2 * var(--canvas-expansion));
+  min-height: 0;
+  margin: auto calc(-1 * var(--canvas-expansion));
+}
+
+.hero .intro {
+  padding-top: 1rem;
+}
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: clamp(1.5rem, 4vw - 1.06rem, 4rem);
+  color: white;
+}
+
+h1 .title {
+  display: block;
+  font-family: "Funnel Display", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: var(--font-size-display);
+  line-height: 100%;
+  letter-spacing: 0.4%;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+
+h1 .subtitle {
+  display: block;
+  padding-top: 0.75rem;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--font-size-body);
+  line-height: 120%;
+  letter-spacing: 0.4%;
+  min-width: max-content;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+
+.intro p {
+  display: none;
+}
+
+@media screen and (min-width: 850px) {
+  .intro p {
+    display: block;
+    padding-right: 2rem;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--font-size-body);
+    line-height: 140%;
+    letter-spacing: 0.4%;
+    max-width: min(55vw, 70ch);
+    white-space: wrap;
+  }
+}
+
+.intro a {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  min-width: max-content;
+  padding: 0.25em 1.25em 0.5em 1.25em;
+  font-family: "Funnel Display", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: var(--font-size-body);
+  background-color: white;
+  color: var(--bg-color);
+  text-decoration: none;
+  border: 0.05em solid white;
+}
+
+.intro a:hover {
+  color: var(--primary-color);
+  border: 0.1em solid var(--primary-color);
+}
+
+.intro a span:not(:first-of-type) {
+  position: absolute;
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 100%;
+}
+
+.intro a:hover span:nth-of-type(2) {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-color);
+}
+
+.intro a:hover span:nth-of-type(3) {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  background-color: var(--primary-color);
+}
+
+.intro a:hover span:nth-of-type(4) {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+  background-color: var(--primary-color);
+}
+
+.intro a:hover span:nth-of-type(5) {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+  background-color: var(--primary-color);
+}
