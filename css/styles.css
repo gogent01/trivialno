@@ -4,6 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
 }
 
 :root {
@@ -17,6 +19,8 @@
   --canvas-expansion: 0.75rem;
 
   --font-size-display: clamp(2.5rem, 5vw - 0.7rem, 5rem);
+  --font-size-big-link: clamp(2rem, 4vw - 0.56rem, 4rem);
+  --font-size-h2: clamp(1.25rem, 2.5vw - 0.35rem, 2.5rem);
   --font-size-body: clamp(1rem, 2vw - 0.28rem, 2rem);
 }
 
@@ -31,11 +35,12 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-color);
+  color: white;
 }
 
 body {
   width: 100%;
-  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -62,8 +67,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  gap: clamp(1.5rem, 4vw - 1.06rem, 4rem);
-  color: white;
+  gap: clamp(1.5rem, 2.5vw - 0.1rem, 2.5rem);
+  padding-bottom: 2em;
 }
 
 h1 .title {
@@ -73,24 +78,21 @@ h1 .title {
   font-style: normal;
   font-size: var(--font-size-display);
   line-height: 100%;
-  letter-spacing: 0.4%;
-  text-box-trim: trim-both;
-  text-box-edge: cap alphabetic;
 }
 
 h1 .subtitle {
   display: block;
-  padding-top: 0.75rem;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-size: var(--font-size-body);
   line-height: 120%;
-  letter-spacing: 0.4%;
   min-width: max-content;
-  text-box-trim: trim-both;
-  text-box-edge: cap alphabetic;
+}
+
+.intro h1 .subtitle {
+  padding-top: 0.75em;
 }
 
 .intro p {
@@ -101,15 +103,7 @@ h1 .subtitle {
   .intro p {
     display: block;
     padding-right: 2rem;
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: var(--font-size-body);
-    line-height: 140%;
-    letter-spacing: 0.4%;
-    max-width: min(55vw, 70ch);
-    white-space: wrap;
+    max-width: min(55vw, 50ch);
   }
 }
 
@@ -118,7 +112,7 @@ h1 .subtitle {
   display: block;
   margin-left: auto;
   min-width: max-content;
-  padding: 0.25em 1.25em 0.5em 1.25em;
+  padding: 0.5625em 1.25em 0.75em 1.25em;
   font-family: "Funnel Display", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -176,4 +170,110 @@ h1 .subtitle {
   left: 0;
   transform: translate(-50%, 50%);
   background-color: var(--primary-color);
+}
+
+section.about {
+  display: flex;
+  font-size: var(--font-size-body);
+  padding: 0.5em var(--padding-x) 3em var(--padding-x);
+}
+
+h2 {
+  display: block;
+  padding-bottom: 1em;
+  font-family: "Funnel Display", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: var(--font-size-h2);
+  line-height: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  font-size: var(--font-size-body);
+}
+
+ul li p {
+  display: inline-block;
+}
+
+li::before {
+  content: "▪︎";
+  display: inline-block;
+  margin-left: -0.075em;
+  margin-right: 0.25em;
+  font-size: 2em;
+  vertical-align: -0.15em;
+}
+
+ul li:not(:first-child) {
+  margin-top: 1em;
+}
+
+p {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--font-size-body);
+  line-height: 140%;
+  max-width: min(55vw, 50ch);
+  white-space: wrap;
+}
+
+footer {
+  position: relative;
+  display: flex;
+  align-items: end;
+  padding: calc(2 * var(--padding-y)) var(--padding-x);
+}
+
+footer div *:not(:first-child) {
+  margin-top: 0.875em;
+}
+
+.footer-start {
+  position: absolute;
+  display: block;
+}
+
+footer a {
+  color: white;
+  text-decoration-color: rgba(255, 255, 255, 0.5);
+  text-underline-offset: 15%;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: 1px;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+
+.small-link {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--font-size-body);
+  line-height: 140%;
+}
+
+.big-link {
+  display: block;
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--font-size-big-link);
+  line-height: 100%;
+}
+
+h1.invisible {
+  visibility: hidden;
+  margin-right: clamp(1.5rem, 2.5vw - 0.1rem, 2.5rem);
 }
