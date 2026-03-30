@@ -28,3 +28,8 @@ function redrawAStar() {
 
 new ResizeObserver(redrawAStar).observe(canvas);
 canvas.addEventListener("click", redrawAStar);
+
+const year = document.getElementById("year");
+if (year) {
+  year.innerHTML = new Date().getFullYear().toString();
+}
