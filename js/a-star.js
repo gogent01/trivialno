@@ -31,8 +31,8 @@ export function init() {
   const MAX_Y = NODES_Y;
 
   const BG_COLOR = "hsla(210, 20%, 6%, 1)";
-  const NODE_COLOR = "rgba(0,0,200,1)";
-  const EDGE_COLOR = "rgba(0,0,200,0.75)";
+  const NODE_COLOR = "rgba(0,0,225,1)";
+  const EDGE_COLOR = "rgba(0,0,225,0.75)";
 
   const NODES_PER_SECOND = 300;
   const ANIMATE_NODES = true;
