@@ -163,7 +163,7 @@ footer a {
   line-height: 100%;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 720px) {
   footer {
     grid-template-columns: auto auto;
     grid-template-rows: auto;
