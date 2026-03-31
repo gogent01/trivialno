@@ -10,7 +10,7 @@
 
 :root {
   --bg-color: hsla(210, 20%, 6%, 1);
-  --primary-color: rgba(0,0,200,1);
+  --primary-color: rgba(0,0,225,1);
   --font-display: "Funnel Display", sans-serif;
   --font-sans: "Inter", sans-serif;
   --font-mono: "SF Mono", "Fira Code", monospace;
@@ -73,14 +73,14 @@ p {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: var(--font-size-body);
   line-height: 140%;
-  max-width: min(55vw, 50ch);
   white-space: wrap;
 }
 
-a:hover {
-  text-decoration: none;
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 ul {
@@ -89,19 +89,21 @@ ul {
 
 ul li {
   font-size: var(--font-size-body);
+  display: flex;
+  align-items: start;
 }
 
 ul li p {
-  display: inline-block;
+  display: inline;
 }
 
 li::before {
-  content: "▪︎";
+  content: "◼︎";
   display: inline-block;
+  margin-top: 0.05em;
   margin-left: -0.075em;
   margin-right: 0.25em;
-  font-size: 2em;
-  vertical-align: -0.15em;
+  font-size: 1.2em;
 }
 
 ul li:not(:first-child) {
@@ -110,21 +112,35 @@ ul li:not(:first-child) {
 
 footer {
   display: grid;
-  grid-template-columns: clamp(12.5rem, 20vw, 23rem) 1fr;
-  padding: calc(2 * var(--padding-y)) var(--padding-x);
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  padding: calc(4 * var(--padding-y)) var(--padding-x) calc(2 * var(--padding-y)) var(--padding-x);
 }
 
-footer .other {
+footer .info {
+  grid-row: 2;
   display: flex;
-  align-items: end;
+  gap: 1em;
+}
+
+footer .links {
+  grid-row: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 1em;
+}
+
+footer .links .big-link {
+  padding-bottom: 1em;
 }
 
 footer a {
   color: white;
   text-decoration-color: rgba(255, 255, 255, 0.5);
-  text-underline-offset: 15%;
+  text-underline-offset: 17.5%;
   text-decoration-skip-ink: auto;
   text-decoration-thickness: 1px;
+  max-width: max-content;
 }
 
 .small-link {
@@ -133,7 +149,7 @@ footer a {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: var(--font-size-body);
+  font-size: inherit;
   line-height: 140%;
 }
 
@@ -145,4 +161,30 @@ footer a {
   font-style: normal;
   font-size: var(--font-size-big-link);
   line-height: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  footer {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    grid-template-areas: "info" "links";
+  }
+
+  footer .info {
+    grid-row: 1;
+  }
+
+  footer .links {
+    grid-row: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+    gap: 1em;
+    padding-bottom: 0;
+  }
+
+  footer .links .big-link {
+    padding-bottom: 0;
+  }
 }

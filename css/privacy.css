@@ -1,17 +1,19 @@
 h2 {
-  padding-top: 1.25em;
+  padding-top: 1.5em;
   padding-bottom: 0.75em;
 }
 
 header {
   display: flex;
-  padding: var(--padding-y) var(--padding-x) 0 var(--padding-x);
+  padding: var(--padding-y) var(--padding-x) var(--padding-y) var(--padding-x);
 }
 
 header a {
   color: white;
   text-decoration: none;
   max-width: max-content;
+  display: flex;
+  gap: 0.25em;
 }
 
 header a .title {
@@ -24,22 +26,12 @@ header a .title {
   max-width: max-content;
 }
 
-header a .subtitle {
-  display: block;
-  padding-top: 0.75em;
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-size: var(--font-size-caption);
-  line-height: 120%;
-  max-width: max-content;
-}
-
 main section {
   padding: 2em var(--padding-x);
 }
 
 .content {
   padding-left: 2em;
+  padding-right: 2em;
+  max-width: 70ch;
 }
