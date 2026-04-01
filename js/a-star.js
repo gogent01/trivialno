@@ -5,11 +5,11 @@ import {randRange} from './utils.js';
 export function init() {
   const canvas = document.getElementById("graph");
   const ctx = canvas.getContext("2d");
-  const dpr = window.devicePixelRatio || 1;
+  const DPR = window.devicePixelRatio || 1;
 
   const WIDTH = canvas.width;
   const HEIGHT = canvas.height;
-  let NODE_SPACING = 28 * dpr * Math.sqrt(WIDTH / 480);
+  let NODE_SPACING = 54 * Math.sqrt(WIDTH / 560) * DPR;
   let NODES_X = Math.floor(WIDTH / NODE_SPACING);
   let NODES_Y = Math.floor(HEIGHT / NODE_SPACING);
   while (WIDTH / NODE_SPACING - NODES_X > 0.1) {
@@ -18,8 +18,8 @@ export function init() {
     NODES_Y = Math.floor(HEIGHT / NODE_SPACING);
   }
 
-  const NODE_SIZE = 4 * Math.sqrt(Math.sqrt(WIDTH / 720));
-  const EDGE_WIDTH = 1.5 * Math.sqrt(Math.sqrt(WIDTH / 480));
+  const NODE_SIZE = 12 * Math.sqrt(Math.sqrt(WIDTH / 720)) * DPR;
+  const EDGE_WIDTH = 4.5 * Math.sqrt(Math.sqrt(WIDTH / 480)) * DPR;
 
   const NODE_CHANCE = randRange(0.05, 0.7);
   const BASE_EDGE_CHANCE = randRange(0.4, 0.8);
@@ -48,8 +48,8 @@ export function init() {
     nodesX: NODES_X,
     nodesY: NODES_Y,
 
-    nodeSize: NODE_SIZE * dpr,
-    edgeWidth: EDGE_WIDTH * dpr,
+    nodeSize: NODE_SIZE,
+    edgeWidth: EDGE_WIDTH,
 
     nodeChance: NODE_CHANCE,
     edgeChance: BASE_EDGE_CHANCE,

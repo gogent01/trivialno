@@ -17,10 +17,12 @@ if (canvas) {
     resizeTimeout = window.setTimeout(() => {
       fading = false;
 
-      const dpr = window.devicePixelRatio || 1;
+      const DPR = window.devicePixelRatio || 1;
+      const CRISP_MULTIPLIER = 4;
+
       const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
+      canvas.width = rect.width * DPR * CRISP_MULTIPLIER;
+      canvas.height = rect.height * DPR * CRISP_MULTIPLIER;
 
       drawer = init();
     }, 200);
