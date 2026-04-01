@@ -21,8 +21,8 @@ export function init() {
   const NODE_SIZE = 12 * Math.sqrt(Math.sqrt(WIDTH / 720)) * DPR;
   const EDGE_WIDTH = 4.5 * Math.sqrt(Math.sqrt(WIDTH / 480)) * DPR;
 
-  const NODE_CHANCE = randRange(0.05, 0.7);
-  const BASE_EDGE_CHANCE = randRange(0.4, 0.8);
+  const NODE_CHANCE = randRange(0.07, 0.7);
+  const BASE_EDGE_CHANCE = randRange(NODE_CHANCE < 0.3 ? 0.6 : 0.4, 0.8);
   const DIAGONAL_EDGE_GATE = 0.5;
   const MAX_STRAIGHT_SPAN = randRange(4, 10);
   const MAX_DIAGONAL_SPAN = randRange(2, 4);
