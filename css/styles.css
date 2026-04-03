@@ -15,9 +15,9 @@
   --font-sans: "Inter", sans-serif;
   --font-mono: "SF Mono", "Fira Code", monospace;
   --transition-base: 0.3s ease;
-  --padding-x: 1rem;
-  --padding-y: 1rem;
-  --canvas-expansion: 0.75rem;
+  --padding-x: clamp(1rem, 60vw - 22.25rem, 2.5rem);
+  --padding-y: clamp(1rem, 10vw - 2.875rem, 1.25rem);
+  --canvas-expansion: clamp(0.75rem, 20vw - 7rem, 1.25rem);
 
   --font-size-display: clamp(2.5rem, 5vw - 0.7rem, 5rem);
   --font-size-big-link: clamp(2rem, 4vw - 0.56rem, 4rem);
@@ -25,14 +25,6 @@
   --font-size-h2: clamp(1.25rem, 2.5vw - 0.35rem, 2.5rem);
   --font-size-body: clamp(1rem, 2vw - 0.28rem, 2rem);
   --font-size-caption: clamp(0.5rem, 1vw - 0.14rem, 1rem);
-}
-
-@media screen and (min-width: 640px) {
-  :root {
-    --padding-x: 2.5rem;
-    --padding-y: 1.25rem;
-    --canvas-expansion: 1.25rem;
-  }
 }
 
 html {
