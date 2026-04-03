@@ -23,13 +23,13 @@ h1 {
 
 .intro {
   display: grid;
-  grid-template-columns: clamp(12.5rem, 20vw, 23rem) 1fr;
+  grid-template-columns: clamp(11.5rem, 40vw + 3.5rem, 12.5rem) 1fr;
   padding-bottom: 0.5em;
 }
 
 .intro .title {
   display: block;
-  font-family:  var(--font-display), sans-serif;
+  font-family: var(--font-display), sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: var(--font-size-display);
@@ -63,7 +63,7 @@ h1 {
   display: block;
   margin-left: auto;
   min-width: max-content;
-  padding: 0.5625em 1em 0.75em 1em;
+  padding: 0.5625em clamp(0.5em, 30vw - 5.5em, 1.25em) 0.75em clamp(0.5em, 30vw - 5.5em, 1.25em);
   font-family:  var(--font-display), sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -128,7 +128,7 @@ h1 {
 
 section.description {
   display: grid;
-  grid-template-columns: 0 1fr 1em;
+  grid-template-columns: clamp(0em, 70vw - 14em, 1.75em) 1fr clamp(1em, 40vw - 7em, 3em);
   font-size: var(--font-size-body);
   padding: 1em var(--padding-x);
 }
@@ -139,22 +139,14 @@ section.description p {
 
 section.about {
   display: grid;
-  grid-template-columns: 0 1fr 1em;
+  grid-template-columns: clamp(0em, 70vw - 14em, 1.75em) 1fr clamp(1em, 40vw - 7em, 3em);
   font-size: var(--font-size-body);
   padding: 1em var(--padding-x);
 }
 
 @media screen and (min-width: 360px) {
-  .intro a {
-    padding: 0.5625em 1.25em 0.75em 1.25em;
-  }
-
-  section.description {
-    grid-template-columns: 1.75em 1fr 3em;
-  }
-
-  section.about {
-    grid-template-columns: 1.75em 1fr 3em;
+  .intro {
+    grid-template-columns: clamp(12.5rem, 20vw, 23rem) 1fr;
   }
 }
 
